@@ -53,11 +53,13 @@ const array = [56, -9, 87, -23, 3, -105, 55, 1];
 
          findMinPositive(arr, arr1);
 
-       
+         if(arr1.length === 0){
+            return -1;
+        }
        return(Math.min(...arr1));
    }
 
-   console.log(findMinPositive(array));    //0
+   //console.log(findMinPositive(array));    //0
    //console.log(findMinPositive([45, -9, 15, 5, -78]));   //5
    //console.log(findMinPositive([-5, -9, -111, -1000, -7]));   //-1
 
