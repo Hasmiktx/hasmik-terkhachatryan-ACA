@@ -65,4 +65,38 @@ const array = [56, -9, 87, -23, 3, -105, 55, 1];
 
 
 
+/*   Write a JavaScript function to get all possible subsets of given length of the given array  */
 
+    /*  կիսատ է և սխալ է աշխատում */
+
+    
+   const array1 = [1, 2, 3, 4];  
+    
+   function setArray(arr, n, subsets = [] ) {
+       
+      let remove = arr.shift();
+  
+         if(arr.length === 0){
+          return;
+         }
+          
+         subsets.push(remove);
+
+         for(let i = 0; i <arr.length; i++)  {   
+        
+             if(subsets.length < n) {
+              subsets.push(arr[i]);
+                if(subsets.length === n){
+                  console.log(subsets);
+
+                }
+             }   
+       }
+             setArray(arr,n)
+   }
+
+
+   //console.log(setArray(array1,2));
+   //console.log(setArray(array1,3));
+   //console.log(setArray([1, 2, 3, 4, 5], 3));
+   
