@@ -29,6 +29,36 @@ console.log(toTree(treeNodes));
 /* 2.   Write a JavaScript function to get all possible subsets of given length of the given array.
     Assume that all elements in the array are unique.      */
 
+function findSubarraysOfArray(arr, n, resultArray = [], i = arr.length - 1) {
+  //debugger
+  for (i; i >= 0; i--) {
+    let curr = [...arr];
+    curr.splice(i, 1);
+    if (curr.length !== n) {
+      findSubarraysOfArray(curr, n, resultArray, i - 1);
+    } else {
+      resultArray.push(curr);
+    }
+  }
+  return resultArray;
+}
+findSubarraysOfArray([1, 2, 3, 4], 3);
+findSubarraysOfArray([1, 2, 3, 4, 5], 3);
+
+function getAllSubsets(array, n) {
+  //debugger;
+  const subsets = [[]];
+  for (const el of array) {
+    const last = subsets.length - 1;
+    for (let i = 0; i <= last; i++) {
+      subsets.push([...subsets[i], el]);
+    }
+  }
+  const filtered = subsets.filter((ar) => ar.length === n);
+  return filtered;
+}
+console.log(getAllSubsets([1, 2, 3, 4], 3));
+
 /* 3. Create a decorator delay(f, ms) that delays each call of ‘f’ by ‘ms’ milliseconds  */
 
 function delayDecor(f, ms) {
@@ -45,7 +75,7 @@ function sayHi(massage, name) {
 }
 
 const sayHiDecor1 = delayDecor(sayHi, 1000);
-sumDecor1("Hello", "Ann");
+sayHiDecor1("Hello", "Ann");
 
 const sayHiDecor2 = delayDecor(sayHi, 2000);
 sayHiDecor2("Hi", "Sem");
@@ -64,12 +94,10 @@ function debounce(f, ms) {
   let timer;
   return function (...rest) {
     clearTimeout(timer);
-    if (ms < 1000) {
-      return;
-    }
+
     timer = setTimeout(function () {
-      let result = f.call(this, ...rest);
-      return result;
+      let result = f.call(this, ...rest); //timer = setTimeout(() => {f.call(this, ...rest)}, ms);
+      return result; //timer = setTimeout(() => f.call(this, ...rest), ms);
     }, ms);
   };
 }
@@ -77,7 +105,7 @@ function debounce(f, ms) {
 function sum(a, b) {
   console.log(a + b);
 }
-const debounceCancel = debounce(sum, 200);
-debounceCancel(1, 3);
-const debounceCall = debounce(sum, 1500);
+const debounceCall = debounce(sum, 2000);
+debounceCall(1, 3);
 debounceCall(2, 3);
+debounceCall(3, 5); //output will be onli last call,after 2sec
