@@ -1,2 +1,2 @@
 const paragraph = document.getElementById("p1");
-paragraph.style.color = "green";
+paragraph.style.color = "black";

@@ -2,13 +2,20 @@ body{
     background-color: rgb(176, 244, 244);
 }
 
-#div1{
-    
+#divImg{
+margin-left: 25px;
+}
+
+
+#div1 {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-bottom: 25px;
     font-size: 25px;
-    
-    color:black;
+     color:blue;
     font-style: oblique;
 }
+
 
 h1{
     font-size: 40px;
@@ -18,7 +25,7 @@ h1{
 #p1{
     font-size: 35px;
     font-style: italic;
-    color: black;
+    color: blue;
     text-align: center;
     
     
