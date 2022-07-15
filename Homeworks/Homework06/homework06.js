@@ -23,8 +23,8 @@ function getKeys(obj, arr = []) {
       getKeys(obj[key], arr);
     }
   }
-  //return arr;
-  return arr.sort((a, b) => a - b);
+  return arr;
+  //return arr.sort((a, b) => a - b);   petq chi senc
 }
 console.log(getKeys(tree)); /*  [ 0, 1, 2, 3, 4, 5, 6 ]  */
 

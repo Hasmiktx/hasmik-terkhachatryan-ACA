@@ -87,8 +87,7 @@ sayHiDecor2("Hi", "Sem");
                                               "Hi Sem"
   */
 
-/*   4.   Implement Debounce decorator 
-         կիսատ է,  Date()-ով լրացումներ պետք է արվի            */
+/*   4.   Implement Debounce decorator */
 
 function debounce(f, ms) {
   let timer;
@@ -108,4 +107,4 @@ function sum(a, b) {
 const debounceCall = debounce(sum, 2000);
 debounceCall(1, 3);
 debounceCall(2, 3);
-debounceCall(3, 5); //output will be onli last call,after 2sec
+debounceCall(3, 5); //output will be only last call,after 2sec
