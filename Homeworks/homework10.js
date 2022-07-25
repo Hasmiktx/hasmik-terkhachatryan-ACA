@@ -204,7 +204,9 @@ class Student extends Person {
     this.year = year;
     this.fee = fee;
     this.exam = 0;
+    this.examNote = {};
   }
+
   get programs() {
     return this._programs;
   }
@@ -224,14 +226,22 @@ class Student extends Person {
     return (this._fee = value);
   }
   passExam(program, grade) {
-    if (this.programs.includes(program)) {
-      if (grade >= 50) {
-        this.exam += 1;
-      }
-      if (this.exam === this.programs.length) {
-        this.year += 1;
-      }
+    this.examNote[program] = grade;
+    if (grade >= 50) {
+      this.exam += 1;
     }
+    console.log(this.examNote);
+    if (this.exam === this.programs.length) {
+      this.year += 1;
+    }
+    // if (this.programs.includes(program)) {
+    //   if (grade >= 50) {
+    //     this.exam += 1;
+    //   }
+    //   if (this.exam === this.programs.length) {
+    //     this.year += 1;
+    //   }
+    // }
   }
   toString() {
     return `Student ${this._firstName} ${this._lastName} ${this._age} years old,studying class ${this._year}  and pay for it ${this._fee}$ for year`;
@@ -242,16 +252,17 @@ student = new Student(
   "Hasmik",
   "Ter-Khachatryan",
   "famale",
-  33,
+  34,
   ["Arm", "Rus", "Eng"],
   2020,
   1000
 );
 student.toString();
-// student.passExam("Arm",90);
-// student.passExam("Rus",80);
-// student.passExam("Eng",60);
-// student.year //2021
+student.passExam("Arm", 90);
+student.passExam("Rus", 50);
+student.passExam("Eng", 60);
+student.year; //2021
+console.log(student.year);
 
 class Teacher extends Person {
   constructor(firstName, lastName, gender, age, program, pay) {
